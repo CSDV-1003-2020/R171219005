@@ -9,6 +9,7 @@ int main()
         cout<<"Enter the first number"<<endl;
         cin>>number_1;
         cout<<"Enter the second number"<<endl;
+	cin>>number_2;
         product_of_numbers=multiply(number_1, number_2);
         cout<<"Product of two numbers"<<product_of_numbers;<<endl;
         return 0;
