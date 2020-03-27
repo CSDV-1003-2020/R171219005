@@ -2,20 +2,30 @@
 using namespace std;
 float multiply(float x, float y);
 float substraction(float x,float y);
+float greater(float x, float y);
 int main()
 {
         float number_1;
         float number_2;
         float product_of_numbers;
 	float diff_of_numbers;
+	float greater_number;
         cout<<"Enter the first number"<<endl;
         cin>>number_1;
         cout<<"Enter the second number"<<endl;
         product_of_numbers=multiply(number_1, number_2);
 	diff_of_numbers=substraction(number_1, number_2);
+	greater_number=greater(number_1,number_2);
         cout<<"Product of two numbers"<<product_of_numbers;<<endl;
 	cout<<"difference of two numbers is"<<diff_of_numbers<<endl;
         return 0;
+}
+float greater(float x,float y)
+{
+	if(x>y)
+		cout<<number_1<<" is greater than "<<number_2;
+	else
+		cout<<number_2<<" is greater than "<<number_1;
 }
 float multiply(float x, float y)
 {
