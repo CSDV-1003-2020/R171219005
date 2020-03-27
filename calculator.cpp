@@ -4,7 +4,7 @@ float multiply(float x, float y);
 float add(float x, float y);
 float substraction(float x,float y);
 float modulo(float x,float y);
-
+float divide(float x, float y);
 int main()
 {
         float number_1;
@@ -13,6 +13,7 @@ int main()
 	float sum_of_numbers;
 	float diff_of_numbers;
 	float remainder;
+	float division_of_numbers;
         cout<<"Enter the first number"<<endl;
         cin>>number_1;
         cout<<"Enter the second number"<<endl;
@@ -26,6 +27,10 @@ int main()
 	cout<<"difference of two numbers is"<<diff_of_numbers<<endl;
 	remainder=modulo(number_1, number_2);
 	cout<<"Remainder is"<<remainder<<endl;
+	division_of_numbers=divide(number_1,number_2);
+        cout<<"Product of two numbers"<<product_of_numbers;<<endl;
+	cout<<"sum of two numbers "<<sum_of_numbers<<endl;
+	cout<<"Division of two numbers "<<division_of_numbers<<endl;
         return 0;
 }
 float multiply(float x, float y)
@@ -43,7 +48,6 @@ float substraction(float x, float y)
 		return (x-y);
 	else
 		return (y-x);
-
 }
 float modulo(float x, float y)
 {
@@ -51,5 +55,17 @@ float modulo(float x, float y)
 		cout<<"INVALID"<<endl:
 	else
 		return(number_1%number_2);
+}
+float divide(float x, float y)
+{
+	if(number_2==0)
+	{
+		cout<<"Please choose a different value for second number"<<endl;
+	}
+
+	else
+	{
+		return number_1/number_2;
+	}
 }
 
