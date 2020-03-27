@@ -41,7 +41,7 @@ float divide(float x, float y)
 
 	else
 	{
-		return number_1/number_2<<endl;
+		return number_1/number_2;
 	}
 }
 
