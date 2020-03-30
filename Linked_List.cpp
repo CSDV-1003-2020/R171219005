@@ -163,6 +163,33 @@ void single_llist::insert_begin()
 }
 
 /*
+ * Sorting Link List
+ */
+void single_llist::sort()
+{
+    struct node *ptr, *s;
+    int value;
+    if (start == NULL)
+    {
+        cout<<"The List is empty"<<endl;
+        return;
+    }
+    ptr = start;
+    while (ptr != NULL)
+    {
+        for (s = ptr->next;s !=NULL;s = s->next)
+        {
+            if (ptr->info > s->info)
+            {
+                value = ptr->info;
+                ptr->info = s->info;
+                s->info = value;
+            }
+        }
+        ptr = ptr->next;
+    }
+}
+
  * Inserting Node at last
  */
 void single_llist::insert_last()
@@ -277,5 +304,4 @@ void single_llist::delete_pos()
         cout<<"Element Deleted"<<endl;
     }
 }
- 
 
