@@ -189,3 +189,119 @@ void single_llist::sort()
         ptr = ptr->next;
     }
 }
+
+ * Inserting Node at last
+ */
+void single_llist::insert_last()
+{
+    int value;
+    cout<<"Enter the value to be inserted: ";
+    cin>>value;
+    struct node *temp, *s;
+    temp = create_node(value);
+    s = start;
+    while (s->next != NULL)
+    {
+        s = s->next;
+    }
+    temp->next = NULL;
+    s->next = temp;
+    cout<<"Element Inserted at last"<<endl;
+}
+
+/*
+ * Insertion of node at a given position
+ */
+void single_llist::insert_pos()
+{
+    int value, pos, counter = 0; 
+    cout<<"Enter the value to be inserted: ";
+    cin>>value;
+    struct node *temp, *s, *ptr;
+    temp = create_node(value);
+    cout<<"Enter the postion at which node to be inserted: ";
+    cin>>pos;
+    int i;
+    s = start;
+    while (s != NULL)
+    {
+        s = s->next;
+        counter++;
+    }
+    if (pos == 1)
+    {
+        if (start == NULL)
+        {
+            start = temp;
+            start->next = NULL;
+        }
+        else
+        {
+            ptr = start;
+            start = temp;
+            start->next = ptr;
+        }
+    }
+    else if (pos > 1  && pos <= counter)
+    {
+        s = start;
+        for (i = 1; i < pos; i++)
+        {
+            ptr = s;
+            s = s->next;
+        }
+        ptr->next = temp;
+        temp->next = s;
+    }
+    else
+    {
+        cout<<"Positon out of range"<<endl;
+    }
+}
+
+
+/*
+ * Delete element at a given position
+ */
+void single_llist::delete_pos()
+{
+    int pos, i, counter = 0;
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    cout<<"Enter the position of value to be deleted: ";
+    cin>>pos;
+    struct node *s, *ptr;
+    s = start;
+    if (pos == 1)
+    {
+        start = s->next;
+    }
+    else
+    {
+        while (s != NULL)
+        {
+            s = s->next;
+            counter++;  
+        }
+        if (pos > 0 && pos <= counter)
+        {
+            s = start;
+            for (i = 1;i < pos;i++)
+            {
+                ptr = s;
+                s = s->next;
+            }
+            ptr->next = s->next;
+        }
+        else
+        {
+            cout<<"Position out of range"<<endl;
+        }
+        free(s);
+        cout<<"Element Deleted"<<endl;
+    }
+}
+
