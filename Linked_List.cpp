@@ -259,6 +259,42 @@ void single_llist::insert_pos()
     }
 }
 
+/*
+ * Update a given Node
+ */
+void single_llist::update()
+{
+    int value, pos, i;
+     if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    cout<<"Enter the node postion to be updated: ";
+    cin>>pos;
+    cout<<"Enter the new value: ";
+    cin>>value;
+struct node *s, *ptr;
+    s = start;
+    if (pos == 1)
+    {
+        start->info = value; 
+    }
+    else
+    {
+        for (i = 0;i < pos - 1;i++)
+        {
+            if (s == NULL)
+            {
+                cout<<"There are less than "<<pos<<" elements";
+                return;
+            }
+            s = s->next;
+        }
+        s->info = value;  
+    }
+    cout<<"Node Updated"<<endl;
+}   
 
 /*
  * Delete element at a given position
@@ -266,6 +302,7 @@ void single_llist::insert_pos()
 void single_llist::delete_pos()
 {
     int pos, i, counter = 0;
+
     if (start == NULL)
     {
         cout<<"List is empty"<<endl;
@@ -305,6 +342,38 @@ void single_llist::delete_pos()
     }
 }
 
+
+ /* 
+ * Reverse Link List
+ */
+void single_llist::reverse()
+{
+    struct node *ptr1, *ptr2, *ptr3;
+
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    if (start->next == NULL)
+    {
+        return;
+    }  
+    ptr1 = start;
+    ptr2 = ptr1->next;
+    ptr3 = ptr2->next;
+    ptr1->next = NULL;
+    ptr2->next = ptr1;
+    while (ptr3 != NULL)
+    {
+        ptr1 = ptr2;
+        ptr2 = ptr3;
+        ptr3 = ptr3->next;
+        ptr2->next = ptr1;         
+    }
+    start = ptr2;
+}
+
 /*
  * Searching an element
  */
@@ -332,5 +401,5 @@ void single_llist::search()
         s = s->next;
     }
     if (!flag)
-        cout<<"Element "<<value<<" not found in the list"<<endl;  
+        cout<<"Element "<<value<<" not found in the list"<<endl;
 }
