@@ -341,6 +341,7 @@ void single_llist::delete_pos()
         cout<<"Element Deleted"<<endl;
     }
 }
+
 /*
  * Display Elements of a link list
  */
@@ -360,4 +361,65 @@ void single_llist::display()
         temp = temp->next;
     }
     cout<<"NULL"<<endl;
+}
+
+ /* 
+ * Reverse Link List
+ */
+void single_llist::reverse()
+{
+    struct node *ptr1, *ptr2, *ptr3;
+
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    if (start->next == NULL)
+    {
+        return;
+    }  
+    ptr1 = start;
+    ptr2 = ptr1->next;
+    ptr3 = ptr2->next;
+    ptr1->next = NULL;
+    ptr2->next = ptr1;
+    while (ptr3 != NULL)
+    {
+        ptr1 = ptr2;
+        ptr2 = ptr3;
+        ptr3 = ptr3->next;
+        ptr2->next = ptr1;         
+    }
+    start = ptr2;
+}
+
+/*
+ * Searching an element
+ */
+void single_llist::search()
+{
+    int value, pos = 0;
+    bool flag = false;
+    if (start == NULL)
+    {
+        cout<<"List is empty"<<endl;
+        return;
+    }
+    cout<<"Enter the value to be searched: ";
+    cin>>value;
+    struct node *s;
+    s = start;
+    while (s != NULL)
+    {
+        pos++;
+        if (s->info == value)
+        {
+            flag = true;
+            cout<<"Element "<<value<<" is found at position "<<pos<<endl;
+        }
+        s = s->next;
+    }
+    if (!flag)
+        cout<<"Element "<<value<<" not found in the list"<<endl;
 }
