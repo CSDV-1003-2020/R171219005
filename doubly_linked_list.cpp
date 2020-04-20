@@ -296,3 +296,4 @@ void double_llist::reverse()
     start = p1;
     cout<<"List Reversed"<<endl; 
 }
+//this is done by xyz
